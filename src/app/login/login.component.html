@@ -1,0 +1,146 @@
+
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>Recreation Center</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" (click)="login()">Inicia Sesión</button>
+            <button class="btn" id="registerBtn" (click)="register()">Registrarse</button>
+        
+            
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" (click)="myMenuFunction()"></i>
+        </div>
+    </nav>
+<!-----------------------------  usuario enviar información a un servidor web ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- Iniciar sesion de  -------------------------->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>¿No tienes una cuenta?  <a  (click)="register()">¡Crea tu cuenta aquí!</a></span>
+                <header>Iniciar sesión</header>
+            </div>
+            <form (submit)="signddin()">
+            <div class="input-box">
+                <input type="email" class="input-field" [(ngModel)]="correo" name="correo" placeholder="Nombre de usuario o Email"  autocomplete="off">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" [(ngModel)]="contrasena" name="contrasena" placeholder="Contrasena"  autocomplete="off">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit"  value="Entrar" >
+            </div>
+            </form>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check"> Recordame</label>
+                </div>
+                <div class="two">
+                    <label><a (click)="forget()">¿Olvidaste tu contraseña?</a></label>
+                </div>
+            </div>
+        </div>
+        <!------------------- Registrarse de -------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>¿Ya tienes una cuenta? <a href="#" (click)="login()">Inicia Sesión</a></span>
+                <header>Regístrate</header>
+            </div>
+            <form (submit)="postuser()" >
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.nombres" name="nombres" placeholder="Nombres"  autocomplete="off">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.apellidos" name="apellidos" placeholder="Apellidos"  autocomplete="off">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            
+            <div class="two-forms">
+                <div class="input-box">
+                    <select class="input-field"  name="dni" autocomplete="off">
+                      <option value="DNI" disabled selected>DNI</option>
+                      <!-- Aquí puedes agregar más opciones si es necesario -->
+                    </select>
+                    <i class="bx bx-user"></i>
+                  </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.numDocumento" name="numDocumento" placeholder="Numero de DNI"  autocomplete="off">
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="email" class="input-field"  [(ngModel)]="objUsuario.correoElectronico" name="correoelectronico" placeholder="Correo Electrónico"  autocomplete="off">
+                <i class="bx bx-envelope"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" class="input-field" [(ngModel)]="objUsuario.contrasena" name="contrasena" placeholder="Contraseña"  autocomplete="off">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="submit" class="submit" value="Registrarse">
+            </div>
+
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Recordame</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Terminos & condiciones</a></label>
+                </div>
+            </div>
+        </form>
+        </div>
+        
+
+        
+        <!------------------- Olvidarse contraseña -------------------------->
+        <div class="forget-container" id="forget">
+            <form (submit)="recuperarContra()">
+            <div class="top">
+               <a href="#" ></a>
+                <header>Formulario de Recuperar Contraseña</header>
+            </div>
+            <div class="input-box">
+                <input type="email" class="input-field" [(ngModel)]="correoRecuperar" name="correoRecuperar" placeholder="Ingrese su E-mail de su cuenta"  autocomplete="off" required>
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Recuperar">
+            </div>
+            </form>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="forget-check">
+                    <label for="forget-check"> Importante: Se le enviará un correo electrónico con la información actualizada si en caso existiera en nuestros datos.</label>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>   
+
+
+
+

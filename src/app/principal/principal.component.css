@@ -1,0 +1,16 @@
+
+  .background {
+    /* Define las propiedades de estilo específicas del contenido dentro del div "repeat" */
+    /* Por ejemplo, centrar el contenido en la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .repeat {
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-image: url('../../assets/construccion.png');
+    background-repeat: repeat-x; /* Se repite horizontalmente */
+    /* Otras propiedades de estilo si es necesario */
+  }
