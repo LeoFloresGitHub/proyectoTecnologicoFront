@@ -6,9 +6,9 @@ export class Usuario {
     numDocumento: string;
     correoElectronico: string;
     contrasena: string;
-    tipoUsuario: number;
+    tipoUsuario: string;
     estado: number;
-    // Otros campos según tus necesidades
+    
   
     constructor() {
       this.id =0;
@@ -18,7 +18,7 @@ export class Usuario {
       this.numDocumento = '';
       this.correoElectronico = ''
       this.contrasena = '';
-      this.tipoUsuario = 1;
+      this.tipoUsuario = "Usuario";
       this.estado = 2;
     }
 

@@ -68,4 +68,24 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
+
+
+  //Metodo para valida DNI
+
+  private apiUrl = 'https://api.apis.net.pe/v1/dni';
+
+  async getDNIValidar(numero: string): Promise<string | null> {
+    try {
+      const response: any = await this.http.get(`${this.apiUrl}?numero=${numero}`).toPromise();
+      const nombre = response.nombre;
+      if (nombre && nombre.trim() !== '') {
+        return nombre;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error('Error al obtener el nombre:', error);
+      return null;
+    }
+  }
 }

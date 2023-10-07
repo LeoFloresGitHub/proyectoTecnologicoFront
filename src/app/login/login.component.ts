@@ -49,6 +49,32 @@ export class LoginComponent {
   
   async postuser() {
 
+    //VALIDACIONES DEL DNI
+
+    const regex = /^[0-9]*$/; //Validar que el dni sea solo numeros.
+    const regexE = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; //Validar al correo Electronico
+    //const dniValidar = await this.auth.getDNIValidar(this.objUsuario.numDocumento);
+
+    //console.log(dniValidar);
+
+    if (!regex.test(this.objUsuario.numDocumento)) {
+      alert('El DNI solo debe contener dígitos.');
+      return;
+    } else if (this.objUsuario.numDocumento.length !== 8) {
+      alert('El DNI solo tiene 8 dígitos.');
+      return;}
+      //else if(!dniValidar || dniValidar === null || dniValidar === undefined){
+        //alert('El DNI colocado no existe.');
+        //return;
+      //}
+      else if(!regexE.test(this.objUsuario.correoElectronico)){
+        alert('Coloque un correo electrónico válido.');
+        return;
+      }
+        
+
+      //CREAMOS EL USUARIO
+
       const url = 'http://localhost:3000/api/proyce/user';
       //const url = 'https://proyceapi.fly.dev/api/proyce/user'; // Reemplaza con la URL de tu servidor
       const headers = new HttpHeaders({
@@ -56,7 +82,7 @@ export class LoginComponent {
       });
 
       this.objUsuario.tipoDocumento =1;
-      this.objUsuario.tipoUsuario =1;
+      this.objUsuario.tipoUsuario ="Usuario";
       this.objUsuario.estado = 2;
     
       
@@ -219,4 +245,7 @@ export class LoginComponent {
 
 
 
+  home(){
+    this.router.navigate(['/home'])
+  }
 }

@@ -8,9 +8,9 @@ import { UnauthGuardService } from './auth/unauth-guard.service';
 import { ConfirmacionCorreoComponent } from './confirmacion-correo/confirmacion-correo.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent,canActivate: [UnauthGuardService] },
-  { path: 'home', component: PrincipalComponent, canActivate: [AuthGuardService] },
+  { path: 'home', component: PrincipalComponent },
   { path: 'recuperarContra/:token', component: RecuperarContraComponent },
   { path: 'auth/confirmar/:token', component: ConfirmacionCorreoComponent },
 ];

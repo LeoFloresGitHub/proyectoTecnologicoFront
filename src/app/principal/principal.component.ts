@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PrincipalComponent {
 
+  credenciales:any = localStorage.getItem('token')
 
   constructor(private auth: AuthService,private router: Router) {
    
@@ -16,6 +17,11 @@ export class PrincipalComponent {
 
    cerrarSesion(){
     this.auth.logout()
+    this.router.navigate(['/login']);
+   }
+
+   irLogin(){
+    
     this.router.navigate(['/login']);
    }
 

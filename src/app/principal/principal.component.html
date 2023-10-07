@@ -1,5 +1,46 @@
 
-
+<!-- 
   <button (click)="cerrarSesion()">
     Cerrar Sesion
-  </button>
+  </button> -->
+
+  <body>
+    <header class="header">
+      <div class="container">
+      <div class="btn-menu">
+        <label for="btn-menu">☰</label>
+      </div>
+        <div class="logo">
+          <h1>Centro de Esparcimiento</h1>
+        </div>
+        <nav class="menu">
+          <a href="#">Inicio</a>
+          <a href="#">Novedades</a>
+          <a href="#">Tarifas</a>
+          <a href="#">Contactos</a>
+        </nav>
+      </div>
+    </header>
+    <div class="capa"></div>
+      
+  <!---------------->
+  
+  <input type="checkbox" id="btn-menu">
+  <div class="container-menu">
+    <div class="cont-menu">
+      <nav>
+        <a href="#">Inicio</a>
+        <a *ngIf="credenciales != null" >Perfil</a>
+        <a href="#" >Servicios</a>
+        
+        <p class="final"></p>
+        
+
+        <hr>
+        <a *ngIf="credenciales == null"  (click)="irLogin()" class="sesion">Iniciar Sesión</a>
+        <a *ngIf="credenciales != null"  (click)="cerrarSesion()" class="sesion">Cerrar Sesión</a>
+      </nav>
+      <label for="btn-menu">✖️</label>
+    </div>
+  </div>
+  </body>
