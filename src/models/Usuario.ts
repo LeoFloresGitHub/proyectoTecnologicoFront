@@ -8,6 +8,7 @@ export class Usuario {
     contrasena: string;
     tipoUsuario: string;
     estado: number;
+    idUsuarioAccion!: number;
     
   
     constructor() {
@@ -20,6 +21,7 @@ export class Usuario {
       this.contrasena = '';
       this.tipoUsuario = "Usuario";
       this.estado = 2;
+      this.idUsuarioAccion;
     }
 
   }

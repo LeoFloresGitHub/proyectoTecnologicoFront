@@ -5,9 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { PrincipalComponent } from './principal/principal.component';
+import { PrincipalComponent } from './inicio/principal/principal.component';
 import { RecuperarContraComponent } from './recuperar-contra/recuperar-contra.component';
 import { ConfirmacionCorreoComponent } from './confirmacion-correo/confirmacion-correo.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { LayoutComponent } from './inicio/layout/layout.component';
+import { AuthService } from './auth/auth.service';
+import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.component';
 
 
 @NgModule({
@@ -16,7 +20,10 @@ import { ConfirmacionCorreoComponent } from './confirmacion-correo/confirmacion-
     LoginComponent,
     PrincipalComponent,
     RecuperarContraComponent,
-    ConfirmacionCorreoComponent
+    ConfirmacionCorreoComponent,
+    PerfilComponent,
+    LayoutComponent,
+    CrearEmpleadoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,9 @@ import { ConfirmacionCorreoComponent } from './confirmacion-correo/confirmacion-
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

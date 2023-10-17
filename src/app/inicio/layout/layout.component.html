@@ -1,0 +1,54 @@
+
+<!-- 
+  <button (click)="cerrarSesion()">
+    Cerrar Sesion
+  </button> -->
+
+  <body>
+    
+    
+    <header class="header">
+      <div class="container">
+      <div class="btn-menu">
+        <label for="btn-menu">☰</label>
+      </div>
+        <div class="logo">
+          <h1>Centro de Esparcimiento</h1>
+        </div>
+        <nav class="menu">
+          <a >Inicio</a>
+          <a href="#">Novedades</a>
+          <a href="#">Tarifas</a>
+          <a href="#">Contactos</a>
+        </nav>
+      </div>
+    </header>
+
+    <!---------------->
+    <div class="capa"></div>
+    <router-outlet ></router-outlet>
+    
+  <!---------------->
+  
+  <input type="checkbox" id="btn-menu">
+  <div class="container-menu">
+    <div class="cont-menu">
+      <nav>
+        <a href="#">Inicio</a>
+        <a *ngIf="credenciales != null" routerLink="perfil"  >Perfil</a>
+        <a *ngIf="tienePermiso(2)" routerLink="/crearempl"> Crear Administrador</a>
+        <a *ngIf="tienePermiso(3)"> Reportes</a>
+        <a href="#">Servicios</a>
+        
+        
+        <p class="final"></p>
+        
+
+        <hr>
+        <a *ngIf="!credenciales"  (click)="irLogin()" class="sesion">Iniciar Sesión</a>
+        <a *ngIf="credenciales"  (click)="cerrarSesion()" class="sesion">Cerrar Sesión</a>
+      </nav>
+      <label for="btn-menu">✖️</label>
+    </div>
+  </div>
+  </body>

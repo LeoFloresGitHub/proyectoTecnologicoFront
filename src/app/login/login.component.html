@@ -64,25 +64,25 @@
             <form (submit)="postuser()" >
             <div class="two-forms">
                 <div class="input-box">
-                    <input type="text" class="input-field" [(ngModel)]="objUsuario.nombres" name="nombres" placeholder="Nombres"  autocomplete="off">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.nombres" name="nombres" placeholder="Nombres"  autocomplete="off" required="">
                     <i class="bx bx-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" [(ngModel)]="objUsuario.apellidos" name="apellidos" placeholder="Apellidos"  autocomplete="off">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.apellidos" name="apellidos" placeholder="Apellidos"  autocomplete="off" required="">
                     <i class="bx bx-user"></i>
                 </div>
             </div>
             
             <div class="two-forms">
                 <div class="input-box">
-                    <select class="input-field"  name="dni" autocomplete="off">
+                    <select class="input-field"  name="dni" autocomplete="off" >
                       <option value="DNI" disabled selected>DNI</option>
                       <!-- Aquí puedes agregar más opciones si es necesario -->
                     </select>
                     <i class="bx bx-user"></i>
                   </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" [(ngModel)]="objUsuario.numDocumento" name="numDocumento" placeholder="Numero de DNI"  autocomplete="off">
+                    <input type="text" class="input-field" [(ngModel)]="objUsuario.numDocumento" name="numDocumento" placeholder="Numero de DNI"  autocomplete="off" required="">
                     <i class='bx bx-user'></i>
                 </div>
             </div>

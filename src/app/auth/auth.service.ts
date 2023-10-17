@@ -3,6 +3,7 @@ import { HttpClient ,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class AuthService {
   public authToken: string | null = null;
 
   public isAuthenticated: boolean = false;
+
+  public valoresToken: any ;
 
   constructor(private http: HttpClient,private router: Router) { 
     this.authToken = localStorage.getItem('token')
@@ -50,6 +53,22 @@ export class AuthService {
   getAuthToken(): string | null {
     return this.authToken || localStorage.getItem('token') || null;
   }
+
+  //Metodo para obtener los valores del token
+  decodeToken(token: string ){
+    try {
+      this.valoresToken = jwt_decode(token); 
+      var valoresTokenJSON = JSON.stringify(this.valoresToken);
+      localStorage.setItem('valoresToken', valoresTokenJSON); // Convierte el objeto a una cadena JSON
+ 
+    } catch (error) {
+      console.error('Error al decodificar el token:', error);
+    }
+  }
+
+
+
+
 
   // Método para cerrar sesión
   logout(): void {

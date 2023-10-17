@@ -1,0 +1,100 @@
+
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <p (click)="home()">Recreation Center</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+                <li><a href="#" class="link"></a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn" id="registerBtn">Registro</button>
+        
+            
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" (click)="myMenuFunction()"></i>
+        </div>
+    </nav>
+<!-----------------------------  usuario enviar información a un servidor web ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- Iniciar sesion de  -------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                
+                <header>Regístro empleado</header>
+            </div>
+            <form (submit)="postuser()" >
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" [(ngModel)]="objUsuario.nombres" name="nombres" placeholder="Nombres"  autocomplete="off" required="">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" [(ngModel)]="objUsuario.apellidos" name="apellidos" placeholder="Apellidos"  autocomplete="off" required="">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                
+                <div class="two-forms">
+                    <div class="input-box">
+                        <select class="input-field"  name="dni" autocomplete="off" >
+                          <option value="DNI"  selected>DNI</option>
+                          
+                          <!-- Aquí puedes agregar más opciones si es necesario -->
+                        </select>
+                        <i class="bx bx-user"></i>
+                      </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" [(ngModel)]="objUsuario.numDocumento" name="numDocumento" placeholder="Numero de DNI"  autocomplete="off" required="">
+                        <i class='bx bx-user'></i>
+                    </div>
+                </div>
+    
+                <div class="input-box">
+                    <select class="input-field "   name="tipoUsuario" autocomplete="off" >
+                        <option  value="2"  selected>Encargado Cancha Futbol</option>
+                        <option value="3"  >Encargado Piscina</option>
+                        <option value="4"  >Encargado Salón</option>
+                        <option  value="1"  >Usuario</option>
+                      <!-- Aquí puedes agregar más opciones si es necesario -->
+                    </select>
+                    <i class="bx bx-user"></i>
+                </div>
+
+
+                <div class="input-box">
+                    <input type="email" class="input-field"  [(ngModel)]="objUsuario.correoElectronico" name="correoelectronico" placeholder="Correo Electrónico"  autocomplete="off">
+                    <i class="bx bx-envelope"></i>
+                </div>
+    
+                <div class="input-box">
+                    <input type="password" class="input-field" [(ngModel)]="objUsuario.contrasena" name="contrasena" placeholder="Contraseña"  autocomplete="off">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+
+
+    
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Registrar">
+                </div>
+    
+                
+            </form>
+        </div>
+        
+
+       
+    </div>
+</div>   
+
+
+
+
