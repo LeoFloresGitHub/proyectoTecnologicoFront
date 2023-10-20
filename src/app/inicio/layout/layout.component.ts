@@ -58,9 +58,21 @@ export class LayoutComponent {
     
    }
 
+
+
    irLogin(){
     
     this.router.navigate(['/login']);
    }
 
+
+   irPerfil(){
+
+    if(this.auth.valoresToken != null){
+      const permisos = this.auth.valoresToken.userId;
+    }
+
+    
+
+   }
 }

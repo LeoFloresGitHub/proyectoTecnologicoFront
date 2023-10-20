@@ -18,6 +18,7 @@ const routes: Routes = [
     { path: '', component: PrincipalComponent },
     { path: 'perfil', component: PerfilComponent },
   ],},
+  
   { path: 'recuperarContra/:token', component: RecuperarContraComponent },
   { path: 'auth/confirmar/:token', component: ConfirmacionCorreoComponent },
   { path: 'crearempl', component: CrearEmpleadoComponent,canActivate: [UnauthGuardService], data: { requirePermission: true }},
