@@ -35,10 +35,12 @@
     <div class="cont-menu">
       <nav>
         <a href="#">Inicio</a>
+        <a *ngIf="credenciales != null" (click)="irReservas()" >Mis Reservas</a>
+        <a *ngIf="credenciales != null"  (click)="irCancha()">Reservar Cancha</a>
         <a *ngIf="credenciales != null" routerLink="perfil" (click)="irPerfil()"  >Perfil</a>
         <a *ngIf="tienePermiso(2)" routerLink="/crearempl"> Crear Administrador</a>
         <a *ngIf="tienePermiso(3)"> Reportes</a>
-        <a href="#">Servicios</a>
+        
         
         
         <p class="final"></p>

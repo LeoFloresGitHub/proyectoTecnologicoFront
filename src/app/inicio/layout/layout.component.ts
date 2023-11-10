@@ -50,14 +50,15 @@ export class LayoutComponent {
     return false;
   }
 
-
-   cerrarSesion(){
-    this.auth.logout()
+  cerrarSesion() {
+    this.auth.logout();
     localStorage.clear();
-    location.reload();
-    
-   }
+    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
 
+    setTimeout(() => {
+      location.reload(); // Recarga la página después de 2 segundos
+    }, 10); // 2000 milisegundos = 2 segundos
+}
 
 
    irLogin(){
@@ -65,14 +66,21 @@ export class LayoutComponent {
     this.router.navigate(['/login']);
    }
 
+   irCancha(){
+    this.router.navigate(['home/reservacancha']);
+
+   }
+
+   irReservas(){
+    this.router.navigate(['home/misreservas']);
+
+   }
 
    irPerfil(){
 
     if(this.auth.valoresToken != null){
       const permisos = this.auth.valoresToken.userId;
     }
-
-    
 
    }
 }

@@ -1,0 +1,53 @@
+
+.center {
+    margin-top: 115px;
+    text-align: center;
+}
+.card {
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+    border: 3px solid #000; /* Grosor del borde de 2 píxeles y color negro (#000) */
+    border-radius: 10px; /* Redondear las esquinas en 10 píxeles */
+    background-color: green;
+
+}
+.card.ocupada {
+    background-color: rgb(231, 79, 79);
+}
+.card.seleccionada {
+    background-color: orange;
+    color: black;
+}
+
+.guardar {
+    width: 30%;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #000000;
+    color: white;
+    display: block;
+    margin: 0 auto; /* Esto centra horizontalmente el elemento */
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.update-profile {
+    min-height: 95vh;
+    background-color: var(--light-bg);
+    
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('src/assets/canchasintetica.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+ 
+ }

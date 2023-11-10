@@ -12,6 +12,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { LayoutComponent } from './inicio/layout/layout.component';
 import { AuthService } from './auth/auth.service';
 import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.component';
+import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.component';
+import { MisreservasComponent } from './misreservas/misreservas.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.co
     ConfirmacionCorreoComponent,
     PerfilComponent,
     LayoutComponent,
-    CrearEmpleadoComponent
+    CrearEmpleadoComponent,
+    ReservaCanchaComponent,
+    MisreservasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+
+
+<body class="update-profile">
+  <div class="center">
+    <h1>Reserva de Canchas ({{ fechaActual }})  </h1>
+
+    <div id="cards-container">
+        <div *ngFor="let tarjeta of tarjetas" [class.card]="true" [class.ocupada]="tarjeta.estado === 'ocupada'" [class.seleccionada]="tarjeta.estado === 'seleccionada'" (click)="seleccionarCancha(tarjeta)">
+          {{ tarjeta.label }}
+      <p>Tipo de Cancha: {{ tarjeta.tipo }}</p>
+      <p>Precio: {{ tarjeta.precio }} soles</p>
+        </div>
+      </div>
+
+    <button id="reservar" class="guardar" (click)="reservarCancha()">Reservar</button>
+  
+  </div>
+</body>

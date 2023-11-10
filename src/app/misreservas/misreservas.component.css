@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    color: rgb(24, 10, 10);
+ }
+ 
+ .btn {
+    background-color: var(--blue);
+ 
+ }
+ 
+ .btn:hover {
+    background-color: var(--dark-blue);
+ }
+ 
+ .delete-btn {
+    background-color: var(--red);
+ }
+ 
+ .delete-btn:hover {
+    background-color: var(--dark-red);
+ }
+ 
+ .update-profile {
+    min-height: 10vh;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('src/assets/11.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ 
+ 
+ }
+ 
+ .update-profile form {
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 5000px;
+    text-align: center;
+    border-radius: 5px;
+ }
+ 
+ .update-profile form img {
+    height: 200px;
+    width: 200p;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+ 
+ }
+ 
+ .update-profile form .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+ }
+ 
+ .update-profile form .flex .inputBox {
+    width: 100%;
+    
+ }
+ 
+ .update-profile form .flex .inputBox span {
+    text-align: left;
+    
+    
+    font-size: 30px;
+    color: var(--black);
+ }
+ 
+ .update-profile form .flex .inputBox .box {
+    width: 85%;
+    border-radius: 5px;
+    background-color: #ECEEEB;
+    padding: 12px 14px;
+ 
+    font-size: 17px;
+    color: var(--black);
+ 
+    margin-top: 10px;
+    
+ 
+ }
+ 
+ .flex {
+    background: #ffffff;
+    height:410px;
+    border-radius: 10px;
+    padding-right: 25px;
+    padding-bottom: 60px;
+    padding-top: 30px;
+    padding-left: 50px;
+    overflow-y: scroll; /* Agregar overflow-y para desplazamiento vertical */
+
+ 
+ }
+ 
+ .guardar {
+    width: 80%;
+    border-radius: 5px;
+    padding: 10px 30px;
+    background-color: #000000;
+    color: white;
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 50px;
+    transform: translate(10px, 30px);
+ }
+ 
+ .volver {
+    text-decoration: none;
+    width: 55%;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 30px;
+    background-color: #000000;
+    display: block;
+    margin: 0 auto; /* Esto centra horizontalmente el elemento */
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    
+ }
+
+ .card {
+    padding: 10px;
+    border-radius:  15px;
+    margin-bottom: 10px;
+    border: 2px solid #000; /* Grosor del borde de 2 píxeles y color negro (#000) */
+}

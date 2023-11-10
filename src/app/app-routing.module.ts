@@ -9,6 +9,8 @@ import { ConfirmacionCorreoComponent } from './confirmacion-correo/confirmacion-
 import { PerfilComponent } from './perfil/perfil.component';
 import { LayoutComponent } from './inicio/layout/layout.component';
 import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.component';
+import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.component';
+import { MisreservasComponent } from './misreservas/misreservas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,11 +19,15 @@ const routes: Routes = [
   children: [
     { path: '', component: PrincipalComponent },
     { path: 'perfil', component: PerfilComponent },
+    { path: 'reservacancha', component: ReservaCanchaComponent },
+    { path: 'misreservas', component: MisreservasComponent },
   ],},
   
   { path: 'recuperarContra/:token', component: RecuperarContraComponent },
   { path: 'auth/confirmar/:token', component: ConfirmacionCorreoComponent },
   { path: 'crearempl', component: CrearEmpleadoComponent,canActivate: [UnauthGuardService], data: { requirePermission: true }},
+  
+
 ];
 
 @NgModule({

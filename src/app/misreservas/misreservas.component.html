@@ -1,0 +1,28 @@
+
+<body>
+    <div class="update-profile">
+        <form method="post" enctype="multipart/form-data">
+            <img src="/assets/defaul.jpg">
+            
+            <div class="flex">
+                <div class=" inputBox">
+                    <div style="margin-bottom: 20px;">
+                    <span id="NombreSpan">Reservas de cancha </span>
+                    </div>
+                    <div class="card " *ngFor="let item of objLista; let i = index">
+                        <p>Fecha: {{ item.fecha }}</p>
+                        <p>Hora Inicio: {{ item.horaInicio }}</p>
+                        
+                    </div>
+                    <button  class="volver" (click)="volver()">Volver</button>
+                    
+                </div>
+                
+            </div>
+            
+
+        </form>
+
+    </div>
+</body>
+
