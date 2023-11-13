@@ -14,6 +14,8 @@ import { AuthService } from './auth/auth.service';
 import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.component';
 import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.component';
 import { MisreservasComponent } from './misreservas/misreservas.component';
+import { ReservaPiscinaComponent } from './reserva-piscina/reserva-piscina.component';
+import { ReservaSalonComponent } from './reserva-salon/reserva-salon.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { MisreservasComponent } from './misreservas/misreservas.component';
     LayoutComponent,
     CrearEmpleadoComponent,
     ReservaCanchaComponent,
-    MisreservasComponent
+    MisreservasComponent,
+    ReservaPiscinaComponent,
+    ReservaSalonComponent
   ],
   imports: [
     BrowserModule,

@@ -70,6 +70,10 @@ export class LayoutComponent {
     this.router.navigate(['home/reservacancha']);
 
    }
+   irPiscina(){
+    this.router.navigate(['home/reservapiscina']);
+
+   }
 
    irReservas(){
     this.router.navigate(['home/misreservas']);

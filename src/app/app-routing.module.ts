@@ -11,6 +11,7 @@ import { LayoutComponent } from './inicio/layout/layout.component';
 import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.component';
 import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.component';
 import { MisreservasComponent } from './misreservas/misreservas.component';
+import { ReservaPiscinaComponent } from './reserva-piscina/reserva-piscina.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: '', component: PrincipalComponent },
     { path: 'perfil', component: PerfilComponent },
     { path: 'reservacancha', component: ReservaCanchaComponent },
+    { path: 'reservapiscina', component: ReservaPiscinaComponent },
     { path: 'misreservas', component: MisreservasComponent },
   ],},
   

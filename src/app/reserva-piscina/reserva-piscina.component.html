@@ -1,0 +1,33 @@
+
+    <body class="update-profile">
+        <div class="center">
+        <h1>Reserva de Piscina   </h1>
+    
+        <div id="piscinas-container">
+          <div *ngFor="let piscina of piscinas" [class.card]="true" [class.ocupada]="piscina.compradas === piscina.cantidadMaxima " 
+               [class.seleccionada]="piscina.seleccionada"
+               [class.disabled]="piscina.compradas > this.cantidadSeleccionada"
+               (click)="seleccionarPiscina(piscina)">
+            {{ piscina.nombre }}
+            <p>Cantidad comprada: {{ piscina.compradas }} / {{ piscina.cantidadMaxima }}</p>
+            <p>Hora: {{ piscina.horaInicio }} - {{ piscina.horaFin }}</p>
+          </div>
+        </div>
+      
+        
+        
+        
+
+        <div class="cantidad-selector">
+            <label>Cantidad de tickets:</label>
+            <select [(ngModel)]="cantidadSeleccionada" name="cantidad" id="cantidad">
+              <option *ngFor="let i of cantidadOptions" [value]="i">{{ i }}</option>
+            </select>
+          </div>
+          
+        <button id="comprar" class="guardar" (click)="comprarPiscinas()">Comprar</button>
+          
+        
+        </div>
+    </body>
+    
