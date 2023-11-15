@@ -9,11 +9,21 @@
                     <div style="margin-bottom: 20px;">
                     <span id="NombreSpan">Reservas de cancha </span>
                     </div>
-                    <div class="card " *ngFor="let item of objLista; let i = index">
+                    <div class="card " *ngFor="let item of objListaReservasCancha; let i = index">
                         <p>Fecha: {{ item.fecha }}</p>
                         <p>Hora Inicio: {{ item.horaInicio }}</p>
                         
                     </div>
+                    <div style="margin-bottom: 20px;">
+                        <span id="NombreSpan">Reservas de Piscina </span>
+                        </div>
+                        <div class="card " *ngFor="let item of objListaReservasPiscina; let i = index">
+                            <p>Fecha: {{ item.fechaReserva }}</p>
+                            <p>Ticket: {{item.nroTicketPiscina}}</p>
+                            <p>Cantidad : {{item.cantidadTickets}}</p>
+                            <p>Hora Inicio: {{ item.nombrePiscina }}</p>
+                            
+                        </div>
                     <button  class="volver" (click)="volver()">Volver</button>
                     
                 </div>

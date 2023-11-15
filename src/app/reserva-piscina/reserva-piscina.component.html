@@ -2,21 +2,28 @@
     <body class="update-profile">
         <div class="center">
         <h1>Reserva de Piscina   </h1>
+
+        
+          <label>Selecciona una fecha:</label>
+          <select [(ngModel)]="fechaActual" name="fecha" id="fecha" (ngModelChange)="actualizarFecha()">
+            <option *ngFor="let fecha of fechas" [value]="fecha.value">{{ fecha.string }}</option>
+        </select>
+      
     
         <div id="piscinas-container">
           <div *ngFor="let piscina of piscinas" [class.card]="true" [class.ocupada]="piscina.compradas === piscina.cantidadMaxima " 
                [class.seleccionada]="piscina.seleccionada"
                [class.disabled]="piscina.compradas > this.cantidadSeleccionada"
                (click)="seleccionarPiscina(piscina)">
+            <div class="card-content">
             {{ piscina.nombre }}
             <p>Cantidad comprada: {{ piscina.compradas }} / {{ piscina.cantidadMaxima }}</p>
-            <p>Hora: {{ piscina.horaInicio }} - {{ piscina.horaFin }}</p>
+            <p>Hora: {{ piscina.horaInicio }} a.m. - {{ piscina.horaFin }} p.m.</p>
+            <p>Precio: {{ piscina.precio }} soles</p>
+            </div>
+
           </div>
         </div>
-      
-        
-        
-        
 
         <div class="cantidad-selector">
             <label>Cantidad de tickets:</label>
