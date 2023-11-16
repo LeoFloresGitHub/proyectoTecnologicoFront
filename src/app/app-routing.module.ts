@@ -12,6 +12,7 @@ import { CrearEmpleadoComponent } from './admin/crear-empleado/crear-empleado.co
 import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.component';
 import { MisreservasComponent } from './misreservas/misreservas.component';
 import { ReservaPiscinaComponent } from './reserva-piscina/reserva-piscina.component';
+import { PasarelaComponent } from './pasarela/pasarela.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: 'misreservas', component: MisreservasComponent },
   ],},
   
+  {path: 'pasarela', component: PasarelaComponent},
   { path: 'recuperarContra/:token', component: RecuperarContraComponent },
   { path: 'auth/confirmar/:token', component: ConfirmacionCorreoComponent },
   { path: 'crearempl', component: CrearEmpleadoComponent,canActivate: [UnauthGuardService], data: { requirePermission: true }},
