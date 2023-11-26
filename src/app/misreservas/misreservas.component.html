@@ -7,23 +7,47 @@
             <div class="flex">
                 <div class=" inputBox">
                     <div style="margin-bottom: 20px;">
-                    <span id="NombreSpan">Reservas de cancha </span>
+                        <span id="NombreSpan">Reservas de Cancha </span>
                     </div>
-                    <div class="card " *ngFor="let item of objListaReservasCancha; let i = index">
-                        <p>Fecha: {{ item.fecha }}</p>
-                        <p>Hora Inicio: {{ item.horaInicio }}</p>
-                        
-                    </div>
+                    <ng-container *ngIf="objListaReservasCancha && objListaReservasCancha.length > 0; else noReservasCancha">
+                        <div class="card " *ngFor="let item of objListaReservasCancha; let i = index">
+                            <p>Fecha: {{ item.fecha }}</p>
+                            <p>Hora Inicio: {{ item.horaInicio }}</p>  
+                        </div>
+                    </ng-container>
+                    <ng-template #noReservasCancha>
+                        <p>Aún no has hecho reservas de cancha.</p>
+                    </ng-template>
                     <div style="margin-bottom: 20px;">
                         <span id="NombreSpan">Reservas de Piscina </span>
-                        </div>
+                    </div>
+
+
+                    <ng-container *ngIf="objListaReservasPiscina && objListaReservasPiscina.length > 0; else noReservasPiscina">
                         <div class="card " *ngFor="let item of objListaReservasPiscina; let i = index">
                             <p>Fecha: {{ item.fechaReserva }}</p>
                             <p>Ticket: {{item.nroTicketPiscina}}</p>
                             <p>Cantidad : {{item.cantidadTickets}}</p>
                             <p>Hora Inicio: {{ item.nombrePiscina }}</p>
-                            
                         </div>
+                    </ng-container>
+                    <ng-template #noReservasPiscina>
+                        <p>Aún no has hecho reservas de piscina.</p>
+                    </ng-template>
+                    
+                        
+                    <div style="margin-bottom: 20px;">
+                        <span id="NombreSpan">Reservas de Salon </span>
+                    </div>
+                    <ng-container *ngIf="objListaReservasSalon && objListaReservasSalon.length > 0; else noReservasSalon">
+                        <div class="card " *ngFor="let item of objListaReservasSalon; let i = index">
+                            <p>Fecha: {{ item.fecha }}</p>
+                            <p>Nombre Salón: {{item.nombreSalon}}</p>       
+                        </div>
+                    </ng-container>
+                    <ng-template #noReservasSalon>
+                        <p>Aún no has hecho reservas de salón.</p>
+                    </ng-template>
                     <button  class="volver" (click)="volver()">Volver</button>
                     
                 </div>

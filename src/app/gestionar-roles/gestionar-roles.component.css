@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    color: rgb(24, 10, 10);
+ }
+ 
+ .btn {
+    background-color: var(--blue);
+ 
+ }
+ 
+ .btn:hover {
+    background-color: var(--dark-blue);
+ }
+ 
+ .delete-btn {
+    background-color: var(--red);
+ }
+ 
+ .delete-btn:hover {
+    background-color: var(--dark-red);
+ }
+ 
+ .update-profile {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* background-color: rgba(0,0,0,0.6); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ 
+ 
+ }
+
+ #container {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+}
+#izquierda, #derecha {
+    width: calc(50% - 25px);
+    padding: 20px;
+    /* border: 1px solid #000; */
+    height: 350px;
+}
+#derecha {
+    overflow-y: auto;
+}
+
+.title {
+    font-weight: bold;
+}
+.select-container {
+    width: 70%;
+    margin: 10px auto;
+}
+ 
+
+.prueba{
+    margin: 65px;
+    text-align: center;
+}
+.card-roles{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    background-color: #fff;
+}
+/* Estilo para el elemento select */
+.input-style {
+    border-radius: 50px;
+    border: 1px solid var(--Black, #3A3A3A);
+    background: var(--White, #FFF);
+    width: 200px;
+    height: 48px;
+    text-align: center;
+    appearance: none;
+    padding-right: 30px; /* Ajusta el espacio para la imagen */
+    background: url('../../assets/flecha-select.svg') no-repeat;
+    background-position: calc(100% - 15px) center;/* Ajusta la posición de la imagen */
+}
+
+/* Estilo para la flecha del select */
+.input-style::-ms-expand, .input-style::-ms-clear, .input-style::-webkit-inner-spin-button {
+    display: none; /* Ocultar la flecha en navegadores Webkit y en Internet Explorer */
+}
+
+/* Ajustar la posición de la flecha en Firefox */
+.input-style {
+    padding-right: 30px; /* Ajusta este valor según tus necesidades */
+}
+
+/* Añadir un fondo personalizado detrás de la flecha (opcional) */
+.input-style:after {
+    content: '\25BE'; /* Código Unicode para una flecha hacia abajo */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta la posición de la flecha hacia la derecha */
+    transform: translateY(-50%);
+}
+.separate-btn{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 0.1em 0.25em;
+    width: 13em;
+    height: 4.2em;
+    background-color: #212121;
+    border: 0.08em solid #fff;
+    border-radius: 0.3em;
+    font-size: 12px;
+  }
+  
+  button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 8.25em;
+    height: 2.5em;
+    background-color: #212121;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+  }
+  
+  button span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+  }
+  
+  button span:not(hover) {
+    transition: all 1s;
+  }
+  

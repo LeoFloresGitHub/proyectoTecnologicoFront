@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class MisreservasComponent implements OnInit {
   objListaReservasCancha: any[] = []; // Aquí almacenaremos los datos de la solicitud GET para reservas canchas
   objListaReservasPiscina: any[] = []; // Aquí almacenaremos los datos de la solicitud GET para reservas piscinas
+  objListaReservasSalon: any[] = []; // Aquí almacenaremos los datos de la solicitud GET para reservas salones
 
 
   constructor(private http: HttpClient, private auth:AuthService,private router: Router) { }
@@ -28,6 +29,11 @@ export class MisreservasComponent implements OnInit {
 
     this.http.get<any[]>(`http://localhost:3000/api/proyce/reservaspiscinaxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
       this.objListaReservasPiscina = data;
+    });
+
+    this.http.get<any[]>(`http://localhost:3000/api/proyce/reservasalonxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
+      this.objListaReservasSalon = data;
+      console.log(data)
     });
   }
   volver(){

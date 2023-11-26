@@ -1,1 +1,35 @@
-<p>reserva-salon works!</p>
+<body class="update-profile">
+    <div class="center">
+      <h1>Reserva de Salones</h1>
+  
+      <label>Selecciona una fecha:</label>
+      <select [(ngModel)]="fechaActual" name="fecha" id="fecha" (ngModelChange)="actualizarFecha()">
+        <option *ngFor="let fecha of fechas" [value]="fecha.value">{{ fecha.string }}</option>
+      </select>
+  
+      <div id="salones-container">
+        <div *ngFor="let salon of salones" class="salon-container">
+        <div  [class.card]="true" 
+        [class.mantenimiento]="salon.estadoSalon === 'Inactiva' "
+        [class.ocupada]="salon.estado === 'ocupada'" [class.seleccionada]="salon.seleccionada" (click)="seleccionarSalon(salon)">
+          <div class="card-content">
+            {{fechaActual}}
+            {{ salon.nombre }}
+            <p>Hora: {{ salon.horaInicio }} - {{ salon.horaFin }}</p>
+            <p>Precio: {{ salon.precio }} soles</p>
+          </div>
+        </div>
+        <select *ngIf="tienePermiso(3)" class="estado-select" [(ngModel)]="salon.estadoSalon" name="estadoSalon" (ngModelChange)="estadoSalon($event,salon.idSalon)">
+          <option value="Inactiva" [selected]="salon.estadoSalon == 'Inactiva'">Inactiva</option>
+          <option value="Activa" [selected]="salon.estadoSalon == 'Activa'">Activa</option>
+        </select>
+
+        </div>
+
+
+
+      </div>
+  
+      <button id="reservar" class="guardar" (click)="reservarSalon()">Reservar</button>
+    </div>
+  </body>

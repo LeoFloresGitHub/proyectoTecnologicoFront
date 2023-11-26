@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+        
     justify-content: center;
     height: 100%; /* Asegura que ocupa toda la altura de la tarjeta */
 }
@@ -58,3 +59,25 @@
     color: white;
  
  }
+ .piscina-container {
+   
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .estado-select {
+    margin-top: 10px; /* Puedes ajustar la cantidad de margen según sea necesario */
+    width: 30%; /* O ajusta el ancho según tus preferencias */
+  }
+  
+  /* Opcional: si deseas centrar el botón, puedes agregar el siguiente estilo */
+  .cantidad-selector {
+    text-align: center;
+  }
+  
+
+  .card.mantenimiento {
+    background-color: yellow;
+    color:black;
+}
+ 

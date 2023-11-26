@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
+import { ModalService } from '../service/modal.service';
 
 @Component({
   selector: 'app-reserva-piscina',
@@ -17,7 +18,7 @@ export class ReservaPiscinaComponent implements OnInit {
   cantidadSeleccionada: number = 1;
   fechas:any[];
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(private http: HttpClient, private auth: AuthService,private modalService: ModalService) {
     // ... Inicialización existente
     this.fechaActual = this.getFechaActual();
     this.fechas = [
@@ -26,8 +27,8 @@ export class ReservaPiscinaComponent implements OnInit {
       { value: this.sumarDias(this.fechaActual, 2), string: this.formatFecha(this.sumarDias(this.fechaActual, 2)) }
   ];
     this.piscinas = [
-      { id: 1, nombre: "Piscina 1", cantidadMaxima: 42, horaInicio: "10:00:00", horaFin: "17:00:00", compradas: 0,compradasOriginal:0 ,precio: 25.00, seleccionada: false },
-      { id: 2, nombre: "Piscina 2", cantidadMaxima: 50, horaInicio: "12:00:00", horaFin: "17:00:00", compradas: 0,compradasOriginal:0, precio: 35.00, seleccionada: false },
+      { id: 1, nombre: "Piscina 1", cantidadMaxima: 7, horaInicio: "10:00:00", horaFin: "17:00:00", compradas: 0,compradasOriginal:0 ,precio: 25.00, seleccionada: false,estado:"Activa" },
+      { id: 2, nombre: "Piscina 2", cantidadMaxima: 50, horaInicio: "12:00:00", horaFin: "17:00:00", compradas: 0,compradasOriginal:0, precio: 35.00, seleccionada: false,estado:"Activa" },
     ];
 
   }
@@ -37,7 +38,6 @@ export class ReservaPiscinaComponent implements OnInit {
   }
 
   async cantidadPiscinaOcupada(){
-    const fecha = '2023-11-14';
 
     // Llamada a la API para idPiscina = 1
     const respuestaPiscina1 = await fetch(`http://localhost:3000/api/proyce/reservaspiscina?fecha=${this.fechaActual}&idPiscina=1`);
@@ -51,6 +51,15 @@ export class ReservaPiscinaComponent implements OnInit {
     if(dataPiscina2.cantidad == null){this.piscinas[1].compradas = 0}else{    this.piscinas[1].compradas = dataPiscina2.cantidad;
     }
    
+    this.http.get<any[]>(`http://localhost:3000/api/proyce/piscinas`).subscribe((datosAPI: any[]) => {
+   this.piscinas.forEach(piscina => {
+    const tarjetaAPI = datosAPI.find(api => api.id === piscina.id);
+    if (tarjetaAPI) {
+      piscina.estado = tarjetaAPI.estado;
+    }
+    });
+    });
+    
   
 
   }
@@ -112,9 +121,13 @@ export class ReservaPiscinaComponent implements OnInit {
     if (piscinaSeleccionada) {
       // Convierte la cantidad seleccionada a número
       const cantidadSeleccionada = parseInt(this.cantidadSeleccionada.toString());
-  
+ 
+      console.log(piscinaSeleccionada.compradas)
+      console.log(cantidadSeleccionada)
+      console.log(piscinaSeleccionada.cantidadMaxima)
+
       // Verifica si la cantidad comprada supera la cantidad máxima permitida
-      if (piscinaSeleccionada.compradas + cantidadSeleccionada > piscinaSeleccionada.cantidadMaxima) {
+      if (parseInt(piscinaSeleccionada.compradas) + cantidadSeleccionada >parseInt(piscinaSeleccionada.cantidadMaxima)) {
         alert(`No puedes comprar más de ${piscinaSeleccionada.cantidadMaxima - piscinaSeleccionada.compradas} tickets para la piscina ${piscinaSeleccionada.nombre}.`);
       } else {
         // Objeto con los datos a enviar en el cuerpo de la solicitud POST
@@ -127,7 +140,9 @@ export class ReservaPiscinaComponent implements OnInit {
           
         };
 
-        console.log(data);
+        this.modalService.openModal(piscinaSeleccionada.nombre,piscinaSeleccionada.precio*cantidadSeleccionada).subscribe(() => {
+
+
 
         // Realizar la solicitud POST a la API
         this.http.post('http://localhost:3000/api/proyce/reservaspiscina', data).subscribe(
@@ -139,7 +154,7 @@ export class ReservaPiscinaComponent implements OnInit {
             piscinaSeleccionada.compradas += cantidadSeleccionada;
 
             // Mostrar un mensaje de reserva personalizado
-            alert(`¡Felicidades! Has comprado ${cantidadSeleccionada} tickets de la piscina ${piscinaSeleccionada.nombre} (ID: ${piscinaSeleccionada.id}).`);
+            //alert(`¡Felicidades! Has comprado ${cantidadSeleccionada} tickets de la piscina ${piscinaSeleccionada.nombre} (ID: ${piscinaSeleccionada.id}).`);
             // Ejecutar verificarPiscinasOcupadas después del éxito
             this.cantidadPiscinaOcupada();
           },
@@ -148,6 +163,7 @@ export class ReservaPiscinaComponent implements OnInit {
             console.error('Error en la solicitud POST:', error);
           }
         );
+        })
       }
     } else {
       alert("Selecciona una piscina antes de comprar.");
@@ -155,5 +171,38 @@ export class ReservaPiscinaComponent implements OnInit {
   }
 
 
+  estadoPiscina(estado:string,ID:number){
+    const piscina = this.piscinas.find(t => t.id === ID);
+  if (piscina) {
+      piscina.estado = estado; 
+      this.estadoPiscinas(ID,estado);
+    }
+  }
+
+  estadoPiscinas(ID:number,Estado:string){
+    var piscinas = {
+      id: ID,
+      estado:Estado
+    }
+    this.http.post('http://localhost:3000/api/proyce/updatepiscina', piscinas).subscribe(response => {
+        // Manejar la respuesta si es necesario
+        console.log(response);
+      });
+  }
+  
+
+
+  tienePermiso(permiso: number): boolean {
+    if(this.auth.valoresToken != null){
+      const permisos = this.auth.valoresToken.permisos;
+    for (let i = 0; i < permisos.length; i++) {
+        if (permisos[i].idFuncionalidad === permiso) {
+            return true;
+        }
+    }
+    }
+    return false;
+  }
+  
 }
    

@@ -1,0 +1,38 @@
+<body>
+    <div class="update-profile">
+        <div class="prueba">
+            <div id="container">
+                <div id="izquierda" class="card-roles">
+                    
+                    <div class="title">Usuarios:</div>
+                    
+                    <div class="select-container">
+                        <br>
+                        <select id="combo" (change)="seleccionarUsuario($event)" class="input-style">
+                            <option value="">Seleccione un usuario</option>
+                            <option *ngFor="let usuario of ListaUsuario" [value]="usuario.id">{{ usuario.nombres +" " + usuario.apellidos }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="derecha" class="card-roles">
+                    <label class="title">Permisos:</label>
+                    <ul>
+                        <br>
+                        <li *ngFor="let elemento of ListaFuncionalidad">
+                            <input type="checkbox" [id]="elemento.id" >
+                            <label [for]="'checkbox' + elemento.id">{{ elemento.nombreFuncionalidad }}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="separate-btn">
+                <button class="btn-idk" (click)="cambiarPermisos()">
+                    <span>
+                        Guardar
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </body>
+    

@@ -5,29 +5,30 @@ import { AuthService } from './auth.service'; // Suponemos que tienes un AuthSer
 @Injectable({
   providedIn: 'root'
 })
-export class UnauthGuardService {
+export class UnauthGuardService  implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {
-
     this.authService.authToken = localStorage.getItem('token');
   }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
+    console.log(route.data)
+    console.log(route.data['requireAuthenticated'])
+
     if (route.data && route.data['requireAuthenticated']) {
       // Verificar si el usuario está autenticado
       if (this.authService.isAuthenticatedTF()) {
-        console.log("H2");
         this.router.navigate(['/home']);
         return false;
       } else {
         return true;
       }
     } else if (route.data && route.data['requirePermission']) {
+      const roleId = route.data['permisoID'];
+  
       // Verificar si el usuario tiene un permiso específico (por ejemplo, permiso 2)
-      if (this.tienePermiso(2)) {
+      if (this.tienePermiso(roleId)) {
         return true;
       } else {
-        console.log(this.tienePermiso(2))
-        console.log("H1")
         this.router.navigate(['/home']);
         return false;
       }
@@ -36,7 +37,7 @@ export class UnauthGuardService {
       return false;
     }
   }
-
+  
   tienePermiso(permiso: number): boolean {
     
     

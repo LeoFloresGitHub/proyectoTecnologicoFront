@@ -4,8 +4,8 @@
     text-align: center;
 }
 .card {
-    width: 200px;
-    height: 100px;
+    width: 450px;
+    height: 300px;
     margin: 10px;
     padding: 10px;
     display: inline-block;
@@ -14,6 +14,13 @@
     border-radius: 10px; /* Redondear las esquinas en 10 píxeles */
     background-color: green;
 
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Asegura que ocupa toda la altura de la tarjeta */
 }
 .card.ocupada {
     background-color: rgb(231, 79, 79);
@@ -44,10 +51,26 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: url('src/assets/canchasintetica.jpg');
+    background-image: url('src/assets/salones2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
  
  }
+
+ 
+ .card.mantenimiento {
+    background-color: yellow;
+    color:black;
+}
+
+.salon-container {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .estado-select {
+    margin-top: 10px; /* Puedes ajustar la cantidad de margen según sea necesario */
+    width: 30%; /* O ajusta el ancho según tus preferencias */
+  }

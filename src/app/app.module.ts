@@ -16,6 +16,12 @@ import { ReservaCanchaComponent } from './reserva-cancha/reserva-cancha.componen
 import { MisreservasComponent } from './misreservas/misreservas.component';
 import { ReservaPiscinaComponent } from './reserva-piscina/reserva-piscina.component';
 import { ReservaSalonComponent } from './reserva-salon/reserva-salon.component';
+import { PasarelaComponent } from './pasarela/pasarela.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PanelComponent } from './panel/panel.component';
+import { GestionarRolesComponent } from './gestionar-roles/gestionar-roles.component';
+
 
 
 @NgModule({
@@ -31,13 +37,18 @@ import { ReservaSalonComponent } from './reserva-salon/reserva-salon.component';
     ReservaCanchaComponent,
     MisreservasComponent,
     ReservaPiscinaComponent,
-    ReservaSalonComponent
+    ReservaSalonComponent,
+    PasarelaComponent,
+    PanelComponent,
+    GestionarRolesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule 
 
   ],
   providers: [

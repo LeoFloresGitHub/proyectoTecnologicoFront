@@ -37,7 +37,6 @@ export class LayoutComponent {
 
    
    tienePermiso(permiso: number): boolean {
-
     if(this.auth.valoresToken != null){
       const permisos = this.auth.valoresToken.permisos;
     for (let i = 0; i < permisos.length; i++) {
@@ -46,7 +45,6 @@ export class LayoutComponent {
         }
     }
     }
-
     return false;
   }
 
@@ -77,6 +75,11 @@ export class LayoutComponent {
 
    irReservas(){
     this.router.navigate(['home/misreservas']);
+
+   }
+
+   irSalon(){
+    this.router.navigate(['home/reservasalon']);
 
    }
 
