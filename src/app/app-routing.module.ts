@@ -16,6 +16,7 @@ import { ReservaSalonComponent } from './reserva-salon/reserva-salon.component';
 import { PasarelaComponent } from './pasarela/pasarela.component';
 import { PanelComponent } from './panel/panel.component';
 import { GestionarRolesComponent } from './gestionar-roles/gestionar-roles.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,10 +30,11 @@ const routes: Routes = [
     { path: 'permisos', component: GestionarRolesComponent , canActivate: [UnauthGuardService], data: { requireAuthenticated: false, requirePermission: true , permisoID:5} },
     { path: 'reservasalon', component: ReservaSalonComponent },
     { path: 'misreservas', component: MisreservasComponent },
+    { path: 'estadisticas', component: EstadisticasComponent },
+
   ],},
   { path: 'pasarela', component: PasarelaComponent },
   { path: 'prueba', component: PanelComponent },
-
   { path: 'recuperarContra/:token', component: RecuperarContraComponent },
   { path: 'auth/confirmar/:token', component: ConfirmacionCorreoComponent },
   { path: 'crearempl', component: CrearEmpleadoComponent, canActivate: [UnauthGuardService], data: { requireAuthenticated: false, requirePermission: true , permisoID:4} },

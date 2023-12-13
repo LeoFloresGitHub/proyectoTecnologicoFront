@@ -34,7 +34,7 @@ export class ConfirmacionCorreoComponent {
   }
   
   async obtenerMensaje(): Promise<void> {
-    const apiUrl = `http://localhost:3000/auth/confirmar/${this.token}`; // Reemplaza esto con la URL de tu API
+    const apiUrl = `https://proyceapi.fly.dev/auth/confirmar/${this.token}`; // Reemplaza esto con la URL de tu API
   
     return new Promise<void>((resolve, reject) => {
       this.http.get(apiUrl).subscribe(

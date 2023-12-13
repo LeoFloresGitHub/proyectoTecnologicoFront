@@ -1,0 +1,89 @@
+<body>
+    <div class="update-profile">
+        <form>
+            <div class="flex">
+                <div class="fecha-container">
+                    <label style="margin-right: 20px;">Fecha:</label>
+                    <input style="margin-right: 20px;" type="date" (change)="obtenerTotales()" [(ngModel)]="fechaComienzo" name="fechaComienzo">
+                    <input style="margin-right: 20px;" type="date" (change)="obtenerTotales()" [(ngModel)]="fechaFinal" name="fechaFinal">
+                  </div>
+
+                <div class="contenedor-cards">
+                    <div *ngFor="let card of areas" class="card" [class]="card.color">
+                        <div class="contenido">
+                          <h2>{{ card.nombre }}</h2>
+                          <h1>VENTA TOTAL: S/. {{ card.cantidad }}</h1>
+                        </div>
+                      </div>
+                </div>
+                <div class="graficos-container">
+                  <div>
+                    <canvas id="myChart" width="350" height="300"></canvas>
+
+                  </div>
+                  <div>
+                    <canvas id="myChart2" width="350" height="300"></canvas>
+
+                  </div>
+                  <div>
+                    <canvas id="myChart3" width="350" height="300"></canvas>
+
+                  </div>
+                </div>
+                 
+
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Servicio</th>
+                      <th>Fecha</th>
+                      <th>Nombre</th>
+                      <th>Usuario</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Iterar sobre los datos de la Cancha -->
+                    <tr *ngFor="let item of dataCancha">
+                      <td>{{ item.servicio }}</td>
+                      <td>{{ item.fecha | date:'short' }}</td>
+                      <td>{{ item.nombreCancha }}</td>
+                      <td>{{ item.usuario }}</td>
+                      <td>{{ item.total }}</td>
+                    </tr>
+                
+                    <!-- Iterar sobre los datos de la Piscina -->
+                    <tr *ngFor="let item of dataPiscina">
+                      <td>{{ item.servicio }}</td>
+                      <td>{{ item.fechaReserva | date:'short' }}</td>
+                      <td>{{ item.nombrePiscina }}</td>
+                      <td>{{ item.usuario }}</td>
+                      <td>{{ item.total }}</td>
+                    </tr>
+                
+                    <!-- Iterar sobre los datos del Salón -->
+                    <tr *ngFor="let item of dataSalon">
+                      <td>{{ item.servicio }}</td>
+                      <td>{{ item.fechaReserva | date:'short' }}</td>
+                      <td>{{ item.nombreSalon }}</td>
+                      <td>{{ item.usuario }}</td>
+                      <td>{{ item.total }}</td>
+                    </tr>
+                  </tbody>
+
+                  <tfoot>
+                    <tr>
+                      <td colspan="4" style="text-align: right;"><strong>Total General:</strong></td>
+                      <td>{{ calcularTotalGeneral() }}</td>
+                    </tr>
+                  </tfoot>
+                </table>
+
+
+
+                
+            </div>
+         </form>   
+    </div>
+</body>
+

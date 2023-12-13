@@ -26,7 +26,7 @@ ngOnInit(): void {
 
 cargarUsuarios(){
     
-  const url = `http://localhost:3000/api/proyce/users`;
+  const url = `https://proyceapi.fly.dev/api/proyce/users`;
 
   this.http.get(url).subscribe(
       (data:any) => {
@@ -48,7 +48,7 @@ cargarUsuarios(){
 }
 
 cargarFuncionalidades(){
-  const url = `http://localhost:3000/api/proyce/funcionalidades`;
+  const url = `https://proyceapi.fly.dev/api/proyce/funcionalidades`;
 
 
   this.http.get(url).subscribe(
@@ -75,7 +75,7 @@ cargarFuncionalidades(){
 cargarFuncionalidadesXid(id: number){
 
   this.ListaPermiso = [];
-  const url = `http://localhost:3000/api/proyce/permisos/${id}`;
+  const url = `https://proyceapi.fly.dev/api/proyce/permisos/${id}`;
 
 
   this.http.get(url).subscribe(
@@ -157,7 +157,7 @@ const modelo = {
 };
 
 // Especificar la URL del servidor
-const url = `http://localhost:3000/api/proyce/permisos/${valorCombo}`;
+const url = `https://proyceapi.fly.dev/api/proyce/permisos/${valorCombo}`;
 
 // Realizar la solicitud HTTP POST para enviar los datos
 this.http.post(url, modelo).subscribe(

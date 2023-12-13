@@ -23,15 +23,15 @@ export class MisreservasComponent implements OnInit {
   }
 
   llamadaApis(){
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/reservacanchaxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/reservacanchaxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
       this.objListaReservasCancha = data;
     });
 
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/reservaspiscinaxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/reservaspiscinaxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
       this.objListaReservasPiscina = data;
     });
 
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/reservasalonxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/reservasalonxid?id=${this.auth.valoresToken.userId}}`).subscribe(data => {
       this.objListaReservasSalon = data;
       console.log(data)
     });

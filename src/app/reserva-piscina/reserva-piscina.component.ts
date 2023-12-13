@@ -40,18 +40,18 @@ export class ReservaPiscinaComponent implements OnInit {
   async cantidadPiscinaOcupada(){
 
     // Llamada a la API para idPiscina = 1
-    const respuestaPiscina1 = await fetch(`http://localhost:3000/api/proyce/reservaspiscina?fecha=${this.fechaActual}&idPiscina=1`);
+    const respuestaPiscina1 = await fetch(`https://proyceapi.fly.dev/api/proyce/reservaspiscina?fecha=${this.fechaActual}&idPiscina=1`);
     const dataPiscina1 = await respuestaPiscina1.json();
     if(dataPiscina1.cantidad == null){this.piscinas[0].compradas = 0}else{this.piscinas[0].compradas = dataPiscina1.cantidad;}
     
   
     // Llamada a la API para idPiscina = 2
-    const respuestaPiscina2 = await fetch(`http://localhost:3000/api/proyce/reservaspiscina?fecha=${this.fechaActual}&idPiscina=2`);
+    const respuestaPiscina2 = await fetch(`https://proyceapi.fly.dev/api/proyce/reservaspiscina?fecha=${this.fechaActual}&idPiscina=2`);
     const dataPiscina2 = await respuestaPiscina2.json();
     if(dataPiscina2.cantidad == null){this.piscinas[1].compradas = 0}else{    this.piscinas[1].compradas = dataPiscina2.cantidad;
     }
    
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/piscinas`).subscribe((datosAPI: any[]) => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/piscinas`).subscribe((datosAPI: any[]) => {
    this.piscinas.forEach(piscina => {
     const tarjetaAPI = datosAPI.find(api => api.id === piscina.id);
     if (tarjetaAPI) {
@@ -136,7 +136,8 @@ export class ReservaPiscinaComponent implements OnInit {
           idUsuario: this.auth.valoresToken.userId,
           idPiscina: piscinaSeleccionada.id,
           fechaReserva: this.fechaActual,
-          cantidadTickets: cantidadSeleccionada
+          cantidadTickets: cantidadSeleccionada,
+          total:cantidadSeleccionada*piscinaSeleccionada.precio
           
         };
 
@@ -145,10 +146,9 @@ export class ReservaPiscinaComponent implements OnInit {
 
 
         // Realizar la solicitud POST a la API
-        this.http.post('http://localhost:3000/api/proyce/reservaspiscina', data).subscribe(
+        this.http.post('https://proyceapi.fly.dev/api/proyce/reservaspiscina', data).subscribe(
           (response) => {
             // Manejar la respuesta de la API, si es necesario
-            console.log('Respuesta de la API:', response);
 
             // Actualizar el estado local de la piscina
             piscinaSeleccionada.compradas += cantidadSeleccionada;
@@ -184,7 +184,7 @@ export class ReservaPiscinaComponent implements OnInit {
       id: ID,
       estado:Estado
     }
-    this.http.post('http://localhost:3000/api/proyce/updatepiscina', piscinas).subscribe(response => {
+    this.http.post('https://proyceapi.fly.dev/api/proyce/updatepiscina', piscinas).subscribe(response => {
         // Manejar la respuesta si es necesario
         console.log(response);
       });

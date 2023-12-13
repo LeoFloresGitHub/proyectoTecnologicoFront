@@ -85,7 +85,7 @@ export class PerfilComponent {
   cargarDatosPerfil(){
     
     const id = this.auth.valoresToken.userId;
-    const url = `http://localhost:3000/api/proyce/users/${id}`;
+    const url = `https://proyceapi.fly.dev/api/proyce/users/${id}`;
     //const url = 'https://proyceapi.fly.dev/api/proyce/user'; // Reemplaza con la URL de tu servidor
     
     // Envía el objeto objUsuario como JSON en el cuerpo de la solicitud GET
@@ -112,7 +112,7 @@ export class PerfilComponent {
   actualizarPerfil(){
     console.log(this.objUsuario)
     this.objUsuario.idUsuarioAccion = this.auth.valoresToken.userId;
-    const url = `http://localhost:3000/api/proyce/user/${this.auth.valoresToken.userId}`; // Reemplaza con la URL de tu API
+    const url = `https://proyceapi.fly.dev/api/proyce/user/${this.auth.valoresToken.userId}`; // Reemplaza con la URL de tu API
 
     this.http.patch(url, this.objUsuario).subscribe(
       (response) => {

@@ -51,7 +51,7 @@ export class RecuperarContraComponent implements OnInit {
   
 
    async enviarNuevaContra(){
-    const url = 'http://localhost:3000/auth/actualizar/contra';
+    const url = 'https://proyceapi.fly.dev/auth/actualizar/contra';
     //const url = 'https://proyceapi.fly.dev/api/proyce/user'; // Reemplaza con la URL de tu servidor
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'

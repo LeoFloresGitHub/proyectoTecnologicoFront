@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PanelComponent } from './panel/panel.component';
 import { GestionarRolesComponent } from './gestionar-roles/gestionar-roles.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { NgChartsModule } from 'ng2-charts';
+
 
 
 
@@ -40,7 +43,8 @@ import { GestionarRolesComponent } from './gestionar-roles/gestionar-roles.compo
     ReservaSalonComponent,
     PasarelaComponent,
     PanelComponent,
-    GestionarRolesComponent
+    GestionarRolesComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,8 @@ import { GestionarRolesComponent } from './gestionar-roles/gestionar-roles.compo
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule 
+    MatDialogModule,
+    NgChartsModule
 
   ],
   providers: [

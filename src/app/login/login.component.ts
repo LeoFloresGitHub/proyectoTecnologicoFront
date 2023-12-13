@@ -75,7 +75,7 @@ export class LoginComponent {
 
       //CREAMOS EL USUARIO
 
-      const url = 'http://localhost:3000/api/proyce/user';
+      const url = 'https://proyceapi.fly.dev/api/proyce/user';
       //const url = 'https://proyceapi.fly.dev/api/proyce/user'; // Reemplaza con la URL de tu servidor
       const headers = new HttpHeaders({
         'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ export class LoginComponent {
 
   async recuperarContra() {
     console.log(this.correoRecuperar);
-    const url = `http://localhost:3000/auth/recuperar/${this.correoRecuperar}`;
+    const url = `https://proyceapi.fly.dev/auth/recuperar/${this.correoRecuperar}`;
     //const url = 'https://proyceapi.fly.dev/api/proyce/user'; // Reemplaza con la URL de tu servidor
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'

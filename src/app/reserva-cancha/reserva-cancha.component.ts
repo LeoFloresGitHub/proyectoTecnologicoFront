@@ -53,7 +53,7 @@ export class ReservaCanchaComponent implements OnInit {
 
    
    // Realizar la solicitud GET a la API con la fecha actual
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/reservascanchas?fecha=${this.fechaActual}`).subscribe((datosAPI: any[]) => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/reservascanchas?fecha=${this.fechaActual}`).subscribe((datosAPI: any[]) => {
       datosAPI.forEach((dato) => {
         const tarjeta = this.tarjetas.find(t => t.fecha === dato.fecha && t.horaInicio === dato.horaInicio);
         if (tarjeta) {
@@ -61,7 +61,7 @@ export class ReservaCanchaComponent implements OnInit {
         }
       });
     });
-    this.http.get<any[]>(`http://localhost:3000/api/proyce/canchas`).subscribe((datosAPI: any[]) => {
+    this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/canchas`).subscribe((datosAPI: any[]) => {
    this.tarjetas.forEach(tarjeta => {
     const tarjetaAPI = datosAPI.find(apiCancha => apiCancha.id === tarjeta.idCancha);
     if (tarjetaAPI) {
@@ -94,11 +94,12 @@ export class ReservaCanchaComponent implements OnInit {
         idCancha: tarjeta.idCancha, // Ajusta el ID de cancha según tus necesidades
         horaInicio: `${tarjeta.horaInicio}`,
         horaFin: `${parseInt(tarjeta.horaInicio) + 1}:00:00`, // Calcula la hora de fin según tus necesidades
-        fecha: tarjeta.fecha
+        fecha: tarjeta.fecha,
+        total: tarjeta.precio
       };
 
       this.modalService.openModal(tarjetasSeleccionadas[0].label,tarjetasSeleccionadas[0].precio).subscribe(() => {
-        this.http.post('http://localhost:3000/api/proyce/reservarcancha', reserva).subscribe(response => {
+        this.http.post('https://proyceapi.fly.dev/api/proyce/reservarcancha', reserva).subscribe(response => {
         // Manejar la respuesta si es necesario
         console.log(response);
         tarjetasSeleccionadas.forEach(tarjeta => {
@@ -161,7 +162,7 @@ export class ReservaCanchaComponent implements OnInit {
       id: ID,
       estado:Estado
     }
-    this.http.post('http://localhost:3000/api/proyce/updatecancha', canchas).subscribe(response => {
+    this.http.post('https://proyceapi.fly.dev/api/proyce/updatecancha', canchas).subscribe(response => {
         // Manejar la respuesta si es necesario
         console.log(response);
       });

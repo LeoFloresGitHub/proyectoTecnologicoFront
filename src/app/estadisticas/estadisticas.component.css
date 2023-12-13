@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    color: rgb(24, 10, 10);
+ }
+ 
+ .btn {
+    background-color: var(--blue);
+ 
+ }
+ 
+ .btn:hover {
+    background-color: var(--dark-blue);
+ }
+ 
+ .delete-btn {
+    background-color: var(--red);
+ }
+ 
+ .delete-btn:hover {
+    background-color: var(--dark-red);
+ }
+ 
+ .update-profile {
+    min-height: 10vh;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('src/assets/11.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ 
+ 
+ }
+ 
+ .update-profile form {
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 50px;
+    height: 780px;
+    padding-bottom: 10px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 5000px;
+    text-align: center;
+    border-radius: 5px;
+
+ }
+ 
+ 
+
+ 
+ .update-profile form .flex {
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido es más alto que la altura */
+
+ }
+ 
+ .update-profile form .flex::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.update-profile form .flex::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del fondo del pulgar (barra) */
+    border-radius: 6px; /* Radio de esquina del pulgar (barra) */
+}
+
+.update-profile form .flex::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color del fondo de la barra de desplazamiento */
+}
+
+ 
+
+ .update-profile form .flex .inputBox .box {
+    width: 85%;
+    border-radius: 5px;
+    background-color: #ECEEEB;
+    padding: 12px 14px;
+ 
+    font-size: 17px;
+    color: var(--black);
+ 
+    margin-top: 10px;
+    margin-right: 230px;
+ 
+ }
+ 
+ .flex {
+    background: #ffffff;
+    border-radius: 10px;
+    padding-right: 25px;
+    padding-bottom: 60px;
+    padding-top: 30px;
+    padding-left: 50px;
+    height: 700px;
+ 
+ }
+ 
+ 
+ .contenedor-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; /* Añade esta línea para disposición horizontal */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si no hay espacio suficiente */
+
+
+  }
+  
+  .card {
+    text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px;
+  height: 150px;
+  width: 30%; /* 30% del ancho del contenedor */
+  box-sizing: border-box;
+  
+  }
+  
+
+  .verde {
+    background-color: green;
+  }
+  
+  
+  .celeste {
+    background-color: lightblue;
+  }
+  
+  .gris {
+    background-color: gray;
+  }
+
+  .fecha-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    align-items: center; /* Centra verticalmente el contenido */
+    margin-left: 20px;
+  }
+
+  .graficos-container {
+   display: flex; /* Activa el modelo de diseño flexbox */
+   justify-content: space-between; /* Distribuye los elementos con espacio uniforme entre ellos */
+   margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+
+
+
+
+.data-table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 20px;
+ }
+ 
+ .data-table th, .data-table td {
+   border: 1px solid #ddd;
+   padding: 8px;
+   text-align: left;
+ }
+ 
+ .data-table th {
+   background-color: #f2f2f2;
+ }
+ 
+ .data-table tr:hover {
+   background-color: #f5f5f5;
+ }

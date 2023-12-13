@@ -56,7 +56,7 @@ verificarReservasOcupadas(){
 
 
       // Realizar la solicitud GET a la API con la fecha actual
-       this.http.get<any[]>(`http://localhost:3000/api/proyce/reservassalon?fecha=${this.fechaActual}`).subscribe((datosAPI: any[]) => {
+       this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/reservassalon?fecha=${this.fechaActual}`).subscribe((datosAPI: any[]) => {
 
        datosAPI.forEach((dato) => {
 
@@ -67,7 +67,7 @@ verificarReservasOcupadas(){
          });
        });
 
-       this.http.get<any[]>(`http://localhost:3000/api/proyce/salones`).subscribe((datosAPI: any[]) => {
+       this.http.get<any[]>(`https://proyceapi.fly.dev/api/proyce/salones`).subscribe((datosAPI: any[]) => {
    this.salones.forEach(tarjeta => {
     const tarjetaAPI = datosAPI.find(apiSalon => apiSalon.id === tarjeta.idSalon);
     if (tarjetaAPI) {
@@ -110,15 +110,15 @@ reservarSalon() {
           fechaReserva: this.fechaActualReal,
           fechaEvento: this.fechaActual,
           idUsuario: this.auth.valoresToken.userId, 
-          idSalon: salonSeleccionado.idSalon
+          idSalon: salonSeleccionado.idSalon,
+          total: salonSeleccionado.precio
     
       };
       this.modalService.openModal(salonSeleccionado.nombre,salonSeleccionado.precio).subscribe(() => {
 
       // Realizar la solicitud POST a la API de reserva
-      this.http.post('http://localhost:3000/api/proyce/reservarsalon', reserva).subscribe(response => {
+      this.http.post('https://proyceapi.fly.dev/api/proyce/reservarsalon', reserva).subscribe(response => {
         // Manejar la respuesta si es necesario
-        console.log(response);
       });
       salonSeleccionado.seleccionada = false;
 
@@ -183,7 +183,7 @@ reservarSalon() {
       id: ID,
       estado:Estado
     }
-    this.http.post('http://localhost:3000/api/proyce/updatesalon', salones).subscribe(response => {
+    this.http.post('https://proyceapi.fly.dev/api/proyce/updatesalon', salones).subscribe(response => {
         // Manejar la respuesta si es necesario
         console.log(response);
       });

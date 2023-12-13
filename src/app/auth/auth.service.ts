@@ -37,7 +37,7 @@ export class AuthService {
     };
   
     //const url = "https://proyceapi.fly.dev/auth/login";
-    const url = "http://localhost:3000/auth/login";
+    const url = "https://proyceapi.fly.dev/auth/login";
   
     return this.http.post<any>(url, datos, httpOptions);
   }

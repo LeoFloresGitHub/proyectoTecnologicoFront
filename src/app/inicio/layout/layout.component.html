@@ -39,7 +39,7 @@
         <a *ngIf="credenciales != null" routerLink="perfil" (click)="irPerfil()">Perfil</a>
         <a *ngIf="tienePermiso(4)" routerLink="/crearempl"> Crear Administrador</a>
         <a *ngIf="tienePermiso(5)" routerLink="/home/permisos"> Gestionar Roles</a>
-
+        <a *ngIf="tienePermiso(6)"  routerLink="/home/estadisticas">Estadisticas</a>
         <a *ngIf="credenciales != null" (click)="irReservas()" >Mis Reservas</a>
 
         <a *ngIf="credenciales != null"  (click)="irCancha()">Reservar Cancha</a>
